@@ -1,0 +1,24 @@
+{
+    "name": "pbxg33k/php-torrent-client",
+    "type": "library",
+    "require": {
+        "guzzlehttp/guzzle": "^6.2",
+        "monolog/monolog": "^1.22",
+        "symfony/cache": "^3.2"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^5.0",
+        "symfony/debug": "^3.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Pbxg33k\\TorrentClient\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Oguzhan Uysal",
+            "email": "development@oguzhanuysal.eu"
+        }
+    ]
+}

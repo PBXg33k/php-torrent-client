@@ -1,0 +1,3 @@
+vendor/
+*.log
+cmd-test.php
