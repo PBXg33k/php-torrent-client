@@ -62,9 +62,8 @@ class UtorrentClient extends AbstractClient implements ClientInterface
     /**
      * @param $authOptions
      *
-     * @return mixed
-     *
-     * @throws AuthenticationRefusedException If authentication error occurs
+     * @return bool
+     * @throws \Exception
      */
     public function authenticate($authOptions)
     {
@@ -213,7 +212,7 @@ class UtorrentClient extends AbstractClient implements ClientInterface
 
     public function GETAuthenticated($uri, $options = [])
     {
-        if(strpos($uri,'?')) {
+        if(strpos($uri,'?') !== false) {
             $uri .= '&';
         } else {
             $uri .= '?';
