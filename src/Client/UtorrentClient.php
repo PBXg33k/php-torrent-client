@@ -115,7 +115,7 @@ class UtorrentClient extends AbstractClient implements ClientInterface
     /**
      * @return mixed
      */
-    public function listTorrents()
+    public function listTorrents($transform = true)
     {
         $response = $this->GETAuthenticated('?list=1');
 
@@ -132,12 +132,14 @@ class UtorrentClient extends AbstractClient implements ClientInterface
 
         $torrents = [];
 
-        foreach($decodedContent->torrents as $rawTorrent) {
-            $torrents[] = $torrent = $this->createTorrentObjectFromArray($rawTorrent);
+        if($transform) {
+            foreach ($decodedContent->torrents as $rawTorrent) {
+                $torrents[] = $torrent = $this->createTorrentObjectFromArray($rawTorrent);
+            }
+            $decodedContent->torrents = $torrents;
         }
-        $decodedContent->torrents = $torrents;
 
-        var_dump($debugContext);
+        return \GuzzleHttp\json_encode($decodedContent);
     }
 
     /**
